@@ -47,3 +47,25 @@ This script will:
 4. Click **Save**.
 
 Your app will be live at: `https://YOUR_USERNAME.github.io/expense-tracker/`
+
+## 5. (Optional) Using a Custom Domain
+If you buy a domain (e.g., `www.my-expenses.com`), follow these extra steps:
+
+### A. Update Code
+1.  Create a file named `CNAME` (no extension) in the `public/` folder.
+    *   Inside it, write only your domain: `www.my-expenses.com`
+2.  Open `vite.config.js`.
+    *   Change `base: '/expense-manager/'` to `base: '/'`.
+3.  Commit and Push: `npm run deploy`.
+
+### B. Configure DNS (Where you bought domain)
+1.  **A Records**: Point `@` to:
+    *   `185.199.108.153`
+    *   `185.199.109.153`
+    *   `185.199.110.153`
+    *   `185.199.111.153`
+2.  **CNAME Record**: Point `www` to `YOUR_USERNAME.github.io`.
+
+### C. Update Firebase Security
+1.  **Firebase Console**: Auth > Settings > Authorized Domains > Add `www.my-expenses.com`.
+2.  **Google Cloud Console**: API Credentials > Key > Restrictions > Add `https://www.my-expenses.com/*`.

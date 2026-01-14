@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signup, logout } from "../../services/authService";
+import { signup, logout, loginWithGoogle } from "../../services/authService";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../common/ThemeToggle";
 
@@ -26,6 +26,16 @@ export default function Register() {
             setError("Failed to create an account: " + err.message);
         }
         setLoading(false);
+    }
+
+    async function handleGoogleSignup() {
+        try {
+            setError("");
+            await loginWithGoogle();
+            navigate("/dashboard");
+        } catch (err) {
+            setError("Failed to sign up with Google: " + err.message);
+        }
     }
 
     return (
@@ -120,6 +130,23 @@ export default function Register() {
                                     {loading ? "Creating..." : "Create Account"}
                                 </button>
                             </form>
+
+                            <div className="relative my-6">
+                                <div className="absolute inset-0 flex items-center">
+                                    <div className="w-full border-t border-gray-200 dark:border-gray-700"></div>
+                                </div>
+                                <div className="relative flex justify-center text-sm">
+                                    <span className="px-4 bg-white dark:bg-gray-800 text-gray-500">Or continue with</span>
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={handleGoogleSignup}
+                                className="w-full py-3 border border-gray-200 dark:border-gray-700 rounded-xl flex justify-center items-center gap-3 text-gray-700 dark:text-white font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                            >
+                                <img className="w-5 h-5" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo" />
+                                Google
+                            </button>
 
                             <div className="mt-8 text-center text-sm text-gray-500">
                                 Already have an account? <Link to="/login" className="text-gray-900 dark:text-white font-bold hover:underline">Log In</Link>
