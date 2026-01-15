@@ -88,7 +88,7 @@ export default function LandingPage() {
                         <div className="flex justify-between items-start mb-8">
                             <div className="text-left">
                                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Trip to Paris 🇫🇷</h3>
-                                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Oct 24 • You, Alice, Bob</p>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Oct 25 • You, Alice, Bob</p>
                             </div>
                             <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-2xl">🗼</div>
                         </div>
@@ -116,11 +116,11 @@ export default function LandingPage() {
                             <div className="flex justify-between items-center">
                                 <div className="text-left">
                                     <p className="text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">Your split</p>
-                                    <p className="text-2xl font-black text-green-500">+ $135.00</p>
+                                    <p className="text-2xl font-black text-green-500">+ ₹205.00</p>
                                 </div>
                                 <div className="text-right">
                                     <p className="text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">Total</p>
-                                    <p className="text-xl font-bold text-gray-900 dark:text-white">$605.00</p>
+                                    <p className="text-xl font-bold text-gray-900 dark:text-white">₹1735.00</p>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +224,7 @@ export default function LandingPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
                     <span className="font-bold text-gray-900 dark:text-white">ExpenseManager</span>
                     <div className="text-gray-500 dark:text-gray-400 text-sm">
-                        &copy; 2024. Simple for friends.
+                        &copy; 2026. Simple for friends.
                     </div>
                 </div>
             </footer>
