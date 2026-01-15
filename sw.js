@@ -83,6 +83,14 @@ self.addEventListener("fetch", (event) => {
     if (event.request.mode === 'navigate') {
         event.respondWith(
             fetch(event.request)
+                .then((response) => {
+                    // Check if we received a valid response
+                    // If server returns 404 (common for SPAs on static hosts), return index.html
+                    if (!response || response.status === 404) {
+                        return caches.match("./index.html");
+                    }
+                    return response;
+                })
                 .catch(() => caches.match("./index.html"))
         );
         return;
@@ -103,7 +111,7 @@ self.addEventListener("fetch", (event) => {
             }).catch(() => {
                 // If offline, errors are expected here
             });
-            
+
             // Keep SW alive for the update
             event.waitUntil(fetchPromise);
 
